@@ -1,7 +1,7 @@
 
-let playerScore = 0;
-let computerScore = 0;
-function computerPlay(){
+
+
+function getComputerSelection(){
     let play=Math.floor(Math.random() * 3);
     if (play==0){
         return "rock";
@@ -22,19 +22,17 @@ function isValid(selection){
     return false;
 
 } 
-function playerSelection(){
+function getPlayerSelection(){
     let play;
     do{
-    play = prompt("What will you throw?");
-    console.log(play);
-    play.toLowerCase();
+        play = prompt("What will you throw?");
+        play.toLowerCase();
     } while(!isValid(play));
-    console.log(6);
-
-    
     return play;
 }
 
+let playerScore = 0;
+let computerScore = 0;
 
 function evaluateGame(player, computer){
     if(player=="rock"&&computer=="paper"){
@@ -70,11 +68,9 @@ function evaluateGame(player, computer){
 
  for (let i=0;i<5;i++){
     console.log("Round "+i);
-    console.log(evaluateGame(playerSelection(),computerPlay()));
+    console.log(evaluateGame(getPlayerSelection(),getComputerSelection()));
     console.log("Compter: "+computerScore);
     console.log("Player:"+playerScore);
-
-
  }
 
 
